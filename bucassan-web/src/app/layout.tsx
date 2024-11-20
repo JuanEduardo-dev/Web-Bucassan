@@ -1,5 +1,8 @@
-import { Navbar } from '@/components/layout/navbar';
-import { Footer } from '@/components/layout/footer';
+import { Navbar } from '@/components/layout/Navbar';
+import { Footer } from '@/components/layout/Footer';
+import { ButtonWhatsapp } from '@/components/layout/ButtonWhatsapp';
+import "./globals.css";
+import "./fonts.css";
 
 export default function RootLayout({
   children,
@@ -8,10 +11,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
+      <head>
+        <title>Bucassan | Clínica Odontológica</title>
+      </head>
       <body className="min-h-screen flex flex-col">
         <Navbar />
-        <main className="flex-grow pt-24 md:pt-28">
+        <main className="flex-grow">
           {children}
+          <ButtonWhatsapp />
         </main>
         <Footer />
       </body>
