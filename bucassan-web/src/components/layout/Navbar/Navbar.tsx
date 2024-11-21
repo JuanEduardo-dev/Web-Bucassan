@@ -50,7 +50,7 @@ const Navbar = () => {
         <Image
           src={isScrolled ? '/images/logo-scroll.png' : '/images/logo.png'}
           alt="Logo"
-          width={isScrolled ? 128 : 192}
+          width={isScrolled ? 128 : 180}
           height={isScrolled ? 40 : 60}
           className="object-contain"
           priority

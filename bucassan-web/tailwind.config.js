@@ -21,6 +21,18 @@ module.exports = {
       fontFamily: {
         title: ["Geomanist"],
       },
+      backgroundImage: {
+        'hero-background': "url('/images/home-bg.jpg')",
+      },
+      animation: {
+        float: 'float 3s ease-in-out infinite', // Duración de 3 segundos
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+      },
     },
   },
   plugins: [

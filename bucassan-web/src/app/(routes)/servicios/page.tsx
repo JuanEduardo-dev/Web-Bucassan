@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function Servicios() {
   return (
     <>
@@ -5,7 +7,7 @@ export default function Servicios() {
       <section className="relative h-36 mt-16">
         {/* Background */}
         <div className="absolute h-full w-full z-[-2] bg-gradient-to-r from-pallette-10/90 via-pallette-10/60 to-transparent">
-          <img
+          <Image
             className="absolute object-cover top-0 right-0 h-full z-[-1] bg-cover"
             src="/images/sede-top.png"
             alt=""

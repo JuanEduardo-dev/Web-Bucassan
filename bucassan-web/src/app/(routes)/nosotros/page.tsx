@@ -1,3 +1,4 @@
+import Image from 'next/image';
 
 export default function Nosotros() {
   return (
@@ -23,7 +24,7 @@ Sabemos la importancia de seguir capacitándonos, es por ello que contamos con l
         {/* Image - hidden on mobile */}
         <div className="hidden md:block w-full md:w-1/2">
           <div className="rounded-3xl overflow-hidden shadow-lg">
-            <img 
+            <Image 
               src="/images/mision_vision.jpg" 
               alt="Dental consultation" 
               className="w-full h-full object-cover"

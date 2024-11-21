@@ -1,33 +1,35 @@
+import Image from 'next/image';
 import { CardHero } from '@/components/ui/Inicio/CardHero';
 
 export default function Home() {
   return (
     <>
     {/* Hero Section */}
-    <section className="relative h-[calc(100vh-250px)]">
+    <section className="relative h-[calc(100vh-250px)] md:h-[calc(100vh-150px)]">
       {/* Background */}
-      <div className="absolute h-full w-full z-[-2] bg-pallette-30">
-        <img
-          className="absolute object-cover top-0 left-0 h-full z-[-1] block sm:hidden"
-          src="/images/mobile-hero.png"
-          alt=""
-        />
-        <div className="absolute top-0 h-full w-full bg-gradient-to-b from-black/5 to-black/20 block sm:hidden"></div>
-        <img
-          className="absolute top-0 left-0 h-full z-[-1] hidden xl:block"
-          src="/images/left-hero.png"
-          alt=""
-        />
-        <img
-          className="absolute top-0 right-0 h-full z-[-1] hidden sm:block"
+      <div className="absolute h-full w-full z-[-2] bg-pallette-30/90">
+        <div className="w-full h-full flex justify-center items-center xl:block p-8">
+          <Image 
+            className="relative object-contain xl:left-48 h-full z-[-1] block animate-float"
+            src="/images/hero-move.png"
+            alt=""
+            width={556}
+            height={712}
+          />
+        </div>
+        <Image
+          className="absolute object-contain bottom-0 right-0 h-full z-[-1] hidden xl:block"
           src="/images/right-hero.png"
           alt=""
+          width={853}
+          height={953}
         />
+        <div className="z-[-2] absolute top-0 h-full w-full bg-gradient-to-b from-black/20 to-black/0"></div>
       </div>
 
-      <div className="h-full w-full bg-gradient-to-b from-black/10 to-black/20">
-        <div className="max-w-7xl mx-auto px-4 h-full flex flex-col justify-center space-y-8 text-white">
-          <h1 className="text-pallette-60 text-4xl md:text-5xl font-bold w-fit max-w-screen-sm leading-tight [text-shadow:_2px_2px_0_rgb(7_89_139)]">
+      <div className="h-full w-full">
+        <div className="max-w-7xl mx-auto px-4 h-full flex flex-col justify-center space-y-6 text-white">
+          <h1 className="text-pallette-60 text-4xl md:text-4xl font-bold w-fit max-w-screen-sm leading-tight [text-shadow:_2px_2px_0_rgb(7_89_139)]">
             Detrás de una linda sonrisa, hay una boca sana
           </h1>
           <h2 className="max-w-screen-sm text-lg md:text-xl font-medium drop-shadow-[0_1px_1px_rgba(0,0,0,0.6)]">
@@ -63,12 +65,11 @@ export default function Home() {
                 <path fill="currentColor" d="m229.66 218.34l-50.07-50.06a88.11 88.11 0 1 0-11.31 11.31l50.06 50.07a8 8 0 0 0 11.32-11.32M40 112a72 72 0 1 1 72 72a72.08 72.08 0 0 1-72-72"></path>
               </svg>
             ),
-            iconBackgroundColor: "bg-gradient-2",
-            backgroundColor: "bg-gradient-1",
+            iconBackgroundColor: "bg-pallette-10",
+            backgroundColor: "bg-pallette-10-contrast",
             textItems: [
               { label: "Teléfono", content: "+51 974 980 380" },
-              { label: "Correo", content: "buccasanclinica@gmail.com" },
-              { label: "Redes", content: "https://linktr.ee/buccasan", isLink: true, href: "https://linktr.ee/buccasan" }
+              { label: "Correo", content: "buccasanclinica@gmail.com" }
             ]
           },
           {
@@ -77,11 +78,11 @@ export default function Home() {
                 <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 8v8l4 4m9-4c0 7.18-5.82 13-13 13S3 23.18 3 16S8.82 3 16 3s13 5.82 13 13"></path>
               </svg>
             ),
-            iconBackgroundColor: "bg-gradient-2",
-            backgroundColor: "bg-gradient-1 bg-gradient-to-b from-black/5 to-black/5",
+            iconBackgroundColor: "bg-pallette-10",
+            backgroundColor: "bg-pallette-10-contrast",
             textItems: [
               { label: "Dirección", content: "Av. Los Laureles 328, Paucarbambilla, Huánuco" },
-              { label: "Horario", content: "Lun-Vie: 8am - 8pm" }
+              { label: "Horario", content: "Lun-Sab: 8am - 8pm" }
             ]
           },
           {
@@ -90,26 +91,32 @@ export default function Home() {
                 <path fill="currentColor" d="m14.914 4l-9.47 9.47L1.09 8.393L2.608 7.09l2.948 3.44L13.5 2.585z"></path>
               </svg>
             ),
-            iconBackgroundColor: "bg-gradient-2",
-            backgroundColor: "bg-gradient-1 bg-gradient-to-b from-black/10 to-black/10",
+            iconBackgroundColor: "bg-pallette-10",
+            backgroundColor: "bg-pallette-10-contrast",
             textItems: [
               { label: "Métodos de pago", content: "Aceptamos pagos en efectivo, transferencias y tarjetas de débito o crédito" }
             ],
             paymentIcons: [
               {
                 svg: (
-                  <img
-                    className="h-10"
+                  <Image
+                    className=""
                     src="/icons/yape.svg"
+                    alt='Yape'
+                    width={32}
+                    height={32}
                   />
                 ),
                 alt: "Yape"
               },
               {
                 svg: (
-                  <img
-                    className="h-10"
+                  <Image
+                    className=""
                     src="/icons/plin.png"
+                    alt='Plin'
+                    width={32}
+                    height={32}
                   />
                 ),
                 alt: "Plin"

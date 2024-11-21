@@ -144,11 +144,8 @@ const ContactForm: React.FC = () => {
               />
             </div>
 
-            <button
-              type="submit"
-              className="w-full bg-pallette-10 text-white py-3 px-6 rounded-lg hover:bg-pallette-10-contrast transition-colors duration-200 font-medium"
-            >
-              Enviar mensaje
+            <button type="submit" className="w-full bg-pallette-10 text-white py-3 px-6 rounded-lg hover:bg-pallette-10-contrast transition-colors duration-200 font-medium flex items-center justify-center" > 
+              <Send size={24} className="mr-2" /> Enviar mensaje 
             </button>
           </form>
         </div>

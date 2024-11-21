@@ -24,14 +24,14 @@ type CardContent = {
 
 const Card: React.FC<CardContent> = ({ icon, iconBackgroundColor, backgroundColor, textItems, paymentIcons }) => {
   return (
-    <div className="relative">
+    <div className="relative space-x-0 -top-24">
       <div className="absolute left-1/2 -top-6 -translate-x-1/2">
         <div className={`flex items-center justify-center w-12 h-12 ${iconBackgroundColor} rounded-full text-white`}>
           {icon}
         </div>
       </div>
 
-      <div className={`${backgroundColor} text-white flex items-center p-8 pt-10 h-full min-h-[250px]`}>
+      <div className={`${backgroundColor} text-white flex items-center p-8 pt-10 h-full min-h-[150px]`}>
         <div className="space-y-2">
           {textItems?.map((item, index) => (
             <div key={index}>
