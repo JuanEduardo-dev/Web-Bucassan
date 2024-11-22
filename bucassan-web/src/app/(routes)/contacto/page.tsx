@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 import { ContactForm } from '@/components/ui/Contacto/ContactForm';
 import { MapPin, Clock, Phone, Mail } from 'lucide-react';
 
