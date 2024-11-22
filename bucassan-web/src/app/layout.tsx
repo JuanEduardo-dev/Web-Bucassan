@@ -1,6 +1,7 @@
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { ButtonWhatsapp } from '@/components/layout/ButtonWhatsapp';
+import { LandbotComponent } from '@/components/layout/LandbotComponent';
 import "./globals.css";
 import "./fonts.css";
 
@@ -18,6 +19,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-grow">
           {children}
+          <LandbotComponent />
           <ButtonWhatsapp />
         </main>
         <Footer />

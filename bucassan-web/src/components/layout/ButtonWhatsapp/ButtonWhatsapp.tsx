@@ -6,7 +6,7 @@ const ButtonWhatsapp = () => {
       href={whatsappLink}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-5 right-5 bg-green-500 text-white rounded-full w-14 h-14 flex justify-center items-center shadow-md text-lg hover:bg-green-600 hover:shadow-lg transition duration-300"
+      className="fixed bottom-24 right-5 bg-green-500 text-white rounded-full w-14 h-14 flex justify-center items-center shadow-md text-lg hover:bg-green-600 hover:shadow-lg transition duration-300"
       aria-label="WhatsApp"
     >
       <svg
