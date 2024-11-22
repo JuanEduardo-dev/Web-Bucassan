@@ -2,11 +2,25 @@
 
 import React, { useEffect } from 'react';
 
-// Extender la interfaz Window
+// Definir interfaces específicas para Landbot
+interface LandbotConfig {
+  configUrl: string;
+}
+
+interface LandbotLivechat {
+  new (config: LandbotConfig): LandbotInstance;
+}
+
+interface LandbotInstance {
+  destroy?: () => void;
+}
+
 declare global {
   interface Window {
-    myLandbot: any;
-    Landbot: any;
+    myLandbot: LandbotInstance | undefined;
+    Landbot: {
+      Livechat: LandbotLivechat;
+    };
   }
 }
 
