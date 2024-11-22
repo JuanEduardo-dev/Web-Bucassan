@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   useEffect(() => {
-    clarity.init('p2rj0iq37x'); // Reemplaza 'your-id' con tu ID de Clarity
+    clarity.init('p2rj0iq37x');
   }, []);
 
   return (
