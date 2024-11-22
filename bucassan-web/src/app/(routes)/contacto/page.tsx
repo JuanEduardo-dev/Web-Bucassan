@@ -1,14 +1,16 @@
+import Image from 'next/image';
+
 import { ContactForm } from '@/components/ui/Contacto/ContactForm';
 import { MapPin, Clock, Phone, Mail } from 'lucide-react';
+
 export default function Contacto() {
   return (
     <>
       {/* Contact Section */}
       <section className='max-w-7xl mx-auto py-2 px-2 flex justify-center items-center min-h-screen'>
-        <div className="grid grid-cols-1 lg:grid-cols-5 items-start mt-16">
-          
+        <div className="grid grid-cols-1 lg:grid-cols-5 items-start mt-24">
           {/* Info Section - ocupa 2 columnas */}
-          <div className="lg:col-span-2 w-full flex flex-col p-4 space-y-4">
+          <div className="animate-fade-in-left lg:col-span-2 w-full flex flex-col p-4 space-y-4">
             <div className="space-y-6 w-full">
               <div className="w-full">
                 <div className="flex items-center space-x-4 mb-4">
@@ -53,26 +55,9 @@ export default function Contacto() {
             </div>
           </div>
           {/* Formulario - ocupa 3 columnas */}
-          <div className="lg:col-span-3 w-full">
+          <div className="animate-fade-in-right lg:col-span-3 w-full">
             <ContactForm />
           </div>
-          {/* Video Section - ocupa 2 columnas 
-          <div className="lg:col-span-2 w-full flex flex-col items-center space-y-4 p-4">
-            <div className="relative w-full p-2 space-y-2">
-              <div className="relative w-auto overflow-hidden shadow-xl bg-gray-100">
-                <video 
-                  className="w-full object-contain" // Usa h-auto y object-contain para mantener la resolución original
-                  autoPlay 
-                  loop
-                  playsInline
-                  controls
-                >
-                  <source src="/videos/presentacion-short.mp4" type="video/mp4" />
-                  Tu navegador no soporta el elemento de video.
-                </video>
-              </div>
-            </div>
-          </div>*/}
         </div>
       </section>
     </>

@@ -3,28 +3,9 @@ import Image from 'next/image';
 export default function Servicios() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative h-36 mt-16">
-        {/* Background */}
-        <div className="absolute h-full w-full z-[-2] bg-gradient-to-r from-pallette-10/90 via-pallette-10/60 to-transparent">
-          <Image
-            className="absolute object-cover top-0 right-0 h-full z-[-1] bg-cover"
-            src="/images/sede-top.png"
-            alt=""
-            style={{
-              maskImage: 'linear-gradient(to right, transparent 1%, black 50%, black 100%)',
-              WebkitMaskImage: 'linear-gradient(to right, transparent 10%, black 50%, black 100%)'
-            }}
-          />
-        </div>
-        <div className="h-full w-full bg-black bg-opacity-10">
-          {/* Contenido */}
-          <div className="max-w-7xl mx-auto px-4 h-full flex flex-col justify-center text-white">
-            <h1 className="text-3xl font-bold w-fit max-w-screen-sm">
-              Ubicanos en Huánuco
-            </h1>
-            <p>Amarilis, Av. Los laureles 328</p>
-          </div>
+      <section className="relative h-[calc(100vh-550px)] overflow-x-hidden flex items-center">
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 h-[calc(100vh-550px)] w-[220vw] sm:w-[150vw] rounded-b-[100%] bg-gradient-to-t from-pallette-30/80 via-pallette-30/90 to-pallette-30/100 z-10"></div>
+        <div className="relative z-20">
         </div>
       </section>
       

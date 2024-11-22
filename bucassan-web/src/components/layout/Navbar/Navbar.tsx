@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -8,33 +9,39 @@ import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const pathname = usePathname();
-  
-  const scrolledRoutes = ['/sede', '/servicios', '/contacto'];
-  const isScrolledRoute = scrolledRoutes.includes(pathname);
-  const [isScrolled, setIsScrolled] = useState(isScrolledRoute);
+  const router = useRouter(); // Añadir esta línea cerca de los otros hooks
+
+  const scrolledRoutes = ['/nosotros', '/sede', '/servicios', '/contacto'];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isScrolledRoute = scrolledRoutes.includes(pathname); // Verdadero si pathname está en las rutas definidas
+  const [isScrolled, setIsScrolled] = useState(false); // Verdadero si el usuario ha scrolleado
+  const [isFixed, setIsFixed] = useState(false); // Verdadero si el scroll es mayor a 50px
+  const [isNavigating, setIsNavigating] = useState(false);
+
+  // Añadir este useEffect para detectar cambios de ruta
+  useEffect(() => {
+    setIsNavigating(false);
+    setIsMenuOpen(false);
+  }, [pathname]);
 
   // Manejo del scroll
   useEffect(() => {
-    if (isScrolledRoute) {
-      setIsScrolled(true);
-      return;
-    }
-
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
+      setIsScrolled(window.scrollY > 0); // Actualiza isScrolled según el scroll
+      setIsFixed(window.scrollY > 96); // Establece isFixed si el scroll es mayor a 50px
     };
-
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isScrolledRoute]);
-
+  
+    handleScroll(); // Comprueba el estado inicial del scroll
+    window.addEventListener('scroll', handleScroll); // Escucha el evento de scroll
+  
+    return () => window.removeEventListener('scroll', handleScroll); // Limpia el listener al desmontar
+  }, []);
+  
   // Control del scroll del body cuando el menú está abierto
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? 'hidden' : 'unset';
   }, [isMenuOpen]);
-
+  
   const navLinks = [
     { href: '/', label: 'Inicio' },
     { href: '/nosotros', label: 'Nosotros' },
@@ -44,16 +51,16 @@ const Navbar = () => {
 
   // Componentes reutilizables
   const Logo = () => (
-    <div className={`transition-all duration-100 
-      ${isScrolled ? 'w-32' : 'w-48'} md:${isScrolled ? 'w-32' : 'w-48'} w-24`}>
+    <div className={`transition-all duration-100 md:${isScrolled ? 'w-32' : 'w-48'} w-48`}>
       <Link href="/">
         <Image
-          src={isScrolled ? '/images/logo-scroll.png' : '/images/logo.png'}
+          src={isScrolled || isScrolledRoute ? '/images/logo-scroll.png' : '/images/logo.png'}
           alt="Logo"
-          width={isScrolled ? 128 : 180}
-          height={isScrolled ? 40 : 60}
+          width={isScrolled || isScrolledRoute ? '128' : '180'}
+          height={isScrolled || isScrolledRoute ? '40' : '60'}
           className="object-contain"
           priority
+          style={{ width: 'auto', height: 'auto' }}
         />
       </Link>
     </div>
@@ -68,7 +75,7 @@ const Navbar = () => {
       {isMenuOpen ? (
         <X className="text-pallette-10" size={24} />
       ) : (
-        <Menu className={`${isScrolled ? 'text-pallette-10' : 'text-white'}`} size={24} />
+        <Menu className={`${isScrolled || isScrolledRoute ? 'text-pallette-10' : 'text-white'}`} size={24} />
       )}
     </button>
   );
@@ -79,13 +86,19 @@ const Navbar = () => {
         <Link 
           key={link.href}
           href={link.href}
-          onClick={mobile ? () => setIsMenuOpen(false) : undefined}
+          onClick={(e) => {
+            if (mobile) {
+              e.preventDefault();
+              setIsNavigating(true);
+              router.push(link.href);
+            }
+          }}
           className={mobile ? 
             `text-xl font-medium text-pallette-10 relative
             ${pathname === link.href ? 'after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-pallette-10' : ''}`
             :
             `relative group transition-colors duration-200 
-            ${isScrolled ? 'text-pallette-10' : 'text-white'}`
+            ${isScrolled || isScrolledRoute ? 'text-pallette-10' : 'text-white'}`
           }
         >
           {link.label}
@@ -103,7 +116,13 @@ const Navbar = () => {
   const ContactButton = ({ mobile = false }) => (
     <Link 
       href="/contacto"
-      onClick={mobile ? () => setIsMenuOpen(false) : undefined}
+      onClick={(e) => {
+        if (mobile) {
+          e.preventDefault();
+          setIsNavigating(true);
+          router.push('/contacto');
+        }
+      }}
       className={mobile ? "w-full px-8" : "group transition-colors duration-200 text-white"}
     >
       <button className={`flex items-center gap-4 bg-pallette-10 text-white rounded-full px-4 transition-colors duration-200 hover:bg-pallette-10-contrast
@@ -146,7 +165,8 @@ const Navbar = () => {
             className={`flex items-center justify-center w-10 h-10 rounded-full transition-colors duration-300 
               ${social.hoverClass} hover:text-white
               ${mobile ? 'text-white bg-pallette-10' : 
-                isScrolled ? 'text-white bg-pallette-10' : 'text-pallette-10 bg-pallette-60'}`
+                isScrolled || isScrolledRoute ? 'text-white bg-pallette-10' : 'text-pallette-10 bg-pallette-60'
+              }`
             }
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
@@ -162,7 +182,7 @@ const Navbar = () => {
     <div 
       className={`
         fixed inset-0 bg-pallette-60 transition-transform duration-300 ease-in-out transform 
-        ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}
+        ${isMenuOpen && !isNavigating ? 'translate-x-0' : 'translate-x-full'}
         lg:hidden flex flex-col items-center justify-center
         space-y-8 pt-20 z-40
       `}
@@ -175,31 +195,59 @@ const Navbar = () => {
 
   return (
     <nav 
-      style={{
-        WebkitBackdropFilter: isScrolled ? 'saturate(180%) blur(5px)' : 'none',
-        backdropFilter: isScrolled ? 'none' : 'none',
-        boxShadow: isScrolled ? 'inset 0 -1px 0 0 rgba(0, 0, 0, 0.1)' : 'none',
-      }}
-      className={`fixed top-0 left-0 right-0 w-full transition-all duration-100 z-50 
-        ${isScrolled ? 'h-16 bg-pallette-60' : 'h-20 bg-transparent'}`}
+      className={`${isFixed || !isScrolledRoute ? 'fixed' : 'absolute'} top-0 left-0 right-0 w-full z-50  flex-col
+        ${
+          isScrolled 
+            ? 'h-16 bg-pallette-60' 
+            : isScrolledRoute 
+            ? 'h-24 bg-pallette-60' 
+            : 'h-20 bg-transparent'
+        }`}
     >
-      <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-between">
-        <Logo />
-        <MenuButton />
+      <div  className={`max-w-7xl mx-auto m-1 justify-end items-center px-4 text-pallette-10
+        ${isFixed || !isScrolledRoute ? 'hidden' : 'flex'}`
+      }>
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7m0 9.5a2.5 2.5 0 0 1 0-5a2.5 2.5 0 0 1 0 5"></path></svg>
         
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-12 font-regular">
-          <NavLinks />
-          <ContactButton />
-        </div>
-        
-        {/* Desktop Social Icons */}
-        <div className="hidden lg:flex">
-          <SocialIcons />
-        </div>
+        <p>Av. Los Laureles 328</p>
 
-        {/* Mobile Menu */}
-        <MobileMenu />
+        <svg className='ml-4' xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 24 24"><path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24c1.12.37 2.33.57 3.57.57c.55 0 1 .45 1 1V20c0 .55-.45 1-1 1c-9.39 0-17-7.61-17-17c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1c0 1.25.2 2.45.57 3.57c.11.35.03.74-.25 1.02z"></path></svg>
+          
+        <p>+51 974 980 380</p>
+
+      </div>
+      <hr className={`${isFixed || !isScrolledRoute ? 'hidden' : 'flex'}`}/>
+
+      <div
+        className={`
+        ${isFixed || !isScrolledRoute ? 'h-full' : 'h-16'}
+        `}
+        style={{
+          WebkitBackdropFilter: isScrolled || isScrolledRoute ? 'saturate(180%) blur(5px)' : 'none',
+          backdropFilter: isScrolled || isScrolledRoute ? 'none' : 'none',
+          boxShadow: isScrolled || isScrolledRoute ? 'inset 0 -1px 0 0 rgba(0, 0, 0, 0.1)' : 'none',
+        }}
+      >
+        <div 
+          className={`max-w-7xl mx-auto px-4 flex items-center justify-between h-full
+          `}>
+          <Logo />
+          <MenuButton />
+          
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-12 font-regular">
+            <NavLinks />
+            <ContactButton />
+          </div>
+          
+          {/* Desktop Social Icons */}
+          <div className="hidden lg:flex">
+            <SocialIcons />
+          </div>
+
+          {/* Mobile Menu */}
+          <MobileMenu />
+        </div>
       </div>
     </nav>
   );

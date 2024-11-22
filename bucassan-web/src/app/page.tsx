@@ -1,7 +1,13 @@
+'use client'
+
 import Image from 'next/image';
+
 import { CardHero } from '@/components/ui/Inicio/CardHero';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function Home() {
+  useScrollAnimation();
+
   return (
     <>
     {/* Hero Section */}
@@ -15,6 +21,7 @@ export default function Home() {
             alt=""
             width={556}
             height={712}
+            style={{ height: 'auto' }}
           />
         </div>
         <Image
@@ -23,22 +30,23 @@ export default function Home() {
           alt=""
           width={853}
           height={953}
+          style={{ height: 'auto' }}
         />
-        <div className="z-[-2] absolute top-0 h-full w-full bg-gradient-to-b from-black/20 to-black/0"></div>
+        <div className="z-[-2] absolute top-0 h-full w-full bg-gradient-to-b from-black/15 to-black/0"></div>
       </div>
 
       <div className="h-full w-full">
         <div className="max-w-7xl mx-auto px-4 h-full flex flex-col justify-center space-y-6 text-white">
-          <h1 className="text-pallette-60 text-4xl md:text-4xl font-bold w-fit max-w-screen-sm leading-tight [text-shadow:_2px_2px_0_rgb(7_89_139)]">
+          <h1 className="reveal fade-up text-pallette-60 text-4xl md:text-4xl font-bold w-fit max-w-screen-sm leading-tight [text-shadow:_2px_2px_0_rgb(7_89_139)]">
             Detrás de una linda sonrisa, hay una boca sana
           </h1>
-          <h2 className="max-w-screen-sm text-lg md:text-xl font-medium drop-shadow-[0_1px_1px_rgba(0,0,0,0.6)]">
+          <h2 className="reveal fade-up max-w-screen-sm text-lg md:text-xl font-medium drop-shadow-[0_1px_1px_rgba(0,0,0,0.6)]">
             En Buccasan brindamos un servicio de alta calidad con profesionales de amplia experiencia para que obtengas la sonrisa que siempre soñaste.
           </h2>
           <a
             target="_blank"
             href="https://api.whatsapp.com/send?phone=51974980380&text=Hola%20Bucassan!%20Vengo%20del%20sitio%20web%20y%20deseo%20reservar%20mi%20cita."
-            className="flex w-fit items-center gap-4 bg-pallette-10 rounded-full px-6 py-3 text-white hover:bg-pallette-10-contrast transition-all duration-200 shadow-lg hover:shadow-xl"
+            className="reveal fade-down flex w-fit items-center gap-4 bg-pallette-10 rounded-full px-6 py-3 text-white hover:bg-pallette-10-contrast transition-all duration-200 shadow-lg hover:shadow-xl"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -65,8 +73,8 @@ export default function Home() {
                 <path fill="currentColor" d="m229.66 218.34l-50.07-50.06a88.11 88.11 0 1 0-11.31 11.31l50.06 50.07a8 8 0 0 0 11.32-11.32M40 112a72 72 0 1 1 72 72a72.08 72.08 0 0 1-72-72"></path>
               </svg>
             ),
-            iconBackgroundColor: "bg-pallette-10",
-            backgroundColor: "bg-pallette-10-contrast",
+            iconBackgroundColor: "bg-pallette-10-contrast",
+            backgroundColor: "bg-pallette-10",
             textItems: [
               { label: "Teléfono", content: "+51 974 980 380" },
               { label: "Correo", content: "buccasanclinica@gmail.com" }
@@ -78,8 +86,8 @@ export default function Home() {
                 <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 8v8l4 4m9-4c0 7.18-5.82 13-13 13S3 23.18 3 16S8.82 3 16 3s13 5.82 13 13"></path>
               </svg>
             ),
-            iconBackgroundColor: "bg-pallette-10",
-            backgroundColor: "bg-pallette-10-contrast",
+            iconBackgroundColor: "bg-pallette-10-contrast",
+            backgroundColor: "bg-pallette-10",
             textItems: [
               { label: "Dirección", content: "Av. Los Laureles 328, Paucarbambilla, Huánuco" },
               { label: "Horario", content: "Lun-Sab: 8am - 8pm" }
@@ -91,8 +99,8 @@ export default function Home() {
                 <path fill="currentColor" d="m14.914 4l-9.47 9.47L1.09 8.393L2.608 7.09l2.948 3.44L13.5 2.585z"></path>
               </svg>
             ),
-            iconBackgroundColor: "bg-pallette-10",
-            backgroundColor: "bg-pallette-10-contrast",
+            iconBackgroundColor: "bg-pallette-10-contrast",
+            backgroundColor: "bg-pallette-10",
             textItems: [
               { label: "Métodos de pago", content: "Aceptamos pagos en efectivo, transferencias y tarjetas de débito o crédito" }
             ],
@@ -105,6 +113,7 @@ export default function Home() {
                     alt='Yape'
                     width={32}
                     height={32}
+                    style={{ height: 'auto' }}
                   />
                 ),
                 alt: "Yape"
@@ -117,6 +126,7 @@ export default function Home() {
                     alt='Plin'
                     width={32}
                     height={32}
+                    style={{ height: 'auto' }}
                   />
                 ),
                 alt: "Plin"

@@ -4,7 +4,7 @@ export default function Sede() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-36 mt-16">
+      <section className="relative h-36 mt-24">
         {/* Background */}
         <div className="absolute h-full w-full z-[-2] bg-gradient-to-r from-pallette-30/90 via-pallette-30/60 to-transparent">
           <Image
@@ -15,15 +15,17 @@ export default function Sede() {
               maskImage: 'linear-gradient(to right, transparent 1%, black 100%)',
               WebkitMaskImage: 'linear-gradient(to right, transparent 10%, black 100%)'
             }}
+            width={3216}
+            height={360}
           />
         </div>
         <div className="h-full w-full bg-black bg-opacity-10">
           {/* Contenido */}
           <div className="max-w-7xl mx-auto px-4 h-full flex flex-col justify-center text-white">
-            <h1 className="text-3xl font-bold w-fit max-w-screen-sm">
+            <h1 className="text-3xl font-bold w-fit max-w-screen-sm drop-shadow-[0_1px_1px_rgba(0,0,0,0.6)]">
               Ubicanos en Huánuco
             </h1>
-            <p>Amarilis, Av. Los laureles 328</p>
+            <p className='drop-shadow-[0_1px_1px_rgba(0,0,0,0.6)]'>Amarilis, Av. Los laureles 328</p>
           </div>
         </div>
       </section>
