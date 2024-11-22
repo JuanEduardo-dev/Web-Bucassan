@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <footer className="bg-pallette-30 bg-gradient-to-b from-black/5 to-black/5 text-white py-12">
+    <footer className="bg-pallette-10-contrast bg-gradient-to-b from-black/5 to-black/5 text-white py-12">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
@@ -18,17 +18,17 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-4">Enlaces Rápidos</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="hover:text-pallette-10 transition-colors">
+                <Link href="/" className="hover:text-pallette-30 transition-colors">
                   Inicio
                 </Link>
               </li>
               <li>
-                <Link href="/contacto" className="hover:text-pallette-10 transition-colors">
+                <Link href="/contacto" className="hover:text-pallette-30 transition-colors">
                   Contacto
                 </Link>
               </li>
               <li>
-                <Link href="/staff-medico" className="hover:text-pallette-10 transition-colors">
+                <Link href="/staff-medico" className="hover:text-pallette-30 transition-colors">
                   Staff Médico
                 </Link>
               </li>
@@ -39,17 +39,17 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-4">Síguenos</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="hover:text-pallette-10 transition-colors">
+                <a href="#" className="hover:text-pallette-30 transition-colors">
                   Facebook
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-pallette-10 transition-colors">
+                <a href="#" className="hover:text-pallette-30 transition-colors">
                   Instagram
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-pallette-10 transition-colors">
+                <a href="#" className="hover:text-pallette-30 transition-colors">
                   Tiktok
                 </a>
               </li>

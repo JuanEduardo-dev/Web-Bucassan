@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image';
-
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { DentalFeatures } from '@/components/ui/Nosotros/DentalFeatures';
 
@@ -33,11 +32,13 @@ export default function Nosotros() {
             src="/images/nosotros-top.png"
             alt=""
             style={{
+              width: 'auto', height: '100%',
               maskImage: 'linear-gradient(to right, transparent 1%, black 100%)',
               WebkitMaskImage: 'linear-gradient(to right, transparent 10%, black 100%)'
             }}
-            width={3216}
-            height={360}
+            width={0}
+            height={0}
+            sizes="100vw"
           />
         </div>
         <div className="h-full w-full bg-black bg-opacity-10">
@@ -59,8 +60,10 @@ export default function Nosotros() {
                 src="/images/mision_vision.jpg" 
                 alt="Dental consultation" 
                 className="w-full h-full object-cover"
-                width={1200}
-                height={1200}
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{width: 'auto', height: '100%'}}
               />
             </div>
           </div>

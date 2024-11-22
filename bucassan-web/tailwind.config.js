@@ -9,7 +9,7 @@ module.exports = {
       colors: {
         'pallette-60': '#f8f8f8',
         'pallette-30': '#01D7D6',
-        'pallette-10': '#1B4F72',
+        'pallette-10': '#045988',
         'pallette-10-contrast': '#1B3C59',
         'complement': '#01D7D6',
 

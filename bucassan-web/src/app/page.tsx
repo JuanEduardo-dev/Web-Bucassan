@@ -19,18 +19,20 @@ export default function Home() {
             className="relative object-contain xl:left-48 h-full z-[-1] block animate-float"
             src="/images/hero-move.png"
             alt=""
-            width={556}
-            height={712}
-            style={{ height: 'auto' }}
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: 'auto', height: '100%' }}
           />
         </div>
         <Image
           className="absolute object-contain bottom-0 right-0 h-full z-[-1] hidden xl:block"
           src="/images/right-hero.png"
           alt=""
-          width={853}
-          height={953}
-          style={{ height: 'auto' }}
+          width={0}
+          height={0}
+          sizes="100vw"
+          style={{ width: 'auto', height: '100%' }}
         />
         <div className="z-[-2] absolute top-0 h-full w-full bg-gradient-to-b from-black/15 to-black/0"></div>
       </div>
