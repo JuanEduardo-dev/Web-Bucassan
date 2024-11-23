@@ -23,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        <meta name="google-site-verification" content="XLPWUF9_PDhbgtFfYvjX0zv36TtDiV55x-vCy8oJuq4" />
         <title>Bucassan | Clínica Odontológica</title>
       </head>
       <body className="min-h-screen flex flex-col">
