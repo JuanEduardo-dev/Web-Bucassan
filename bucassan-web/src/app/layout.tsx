@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { clarity } from 'react-microsoft-clarity';
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
@@ -32,6 +33,7 @@ export default function RootLayout({
           <ButtonWhatsapp />
         </main>
         <Footer />
+        <GoogleAnalytics gaId="G-DM303B31B1" />
       </body>
     </html>
   );
