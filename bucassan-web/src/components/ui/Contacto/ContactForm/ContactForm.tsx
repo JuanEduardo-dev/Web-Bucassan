@@ -67,7 +67,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
       } else {
         onSubmit('error');
       }
-    } catch (error) {
+    } catch {
       onSubmit('error');
     } finally {
       setIsSubmitting(false);
