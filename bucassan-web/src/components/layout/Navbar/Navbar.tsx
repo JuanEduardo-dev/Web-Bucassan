@@ -13,7 +13,7 @@ const Navbar = () => {
 
   const scrolledRoutes = ['/nosotros', '/sede', '/servicios', '/contacto'];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const isScrolledRoute = scrolledRoutes.includes(pathname); // Verdadero si pathname está en las rutas definidas
+  const isScrolledRoute = scrolledRoutes.includes(pathname) || pathname !== '/'; // Verdadero si pathname está en las rutas definidas
   const [isScrolled, setIsScrolled] = useState(false); // Verdadero si el usuario ha scrolleado
   const [isFixed, setIsFixed] = useState(false); // Verdadero si el scroll es mayor a 50px
   const [isNavigating, setIsNavigating] = useState(false);
@@ -195,7 +195,7 @@ const Navbar = () => {
 
   return (
     <nav 
-      className={`${isFixed || !isScrolledRoute ? 'fixed' : 'absolute'} top-0 left-0 right-0 w-full z-50  flex-col
+      className={`${isFixed || !isScrolledRoute ? 'fixed' : 'absolute'} top-0 left-0 right-0 w-full z-50  flex-col transition-all duration-100
         ${
           isScrolled 
             ? 'h-16 bg-pallette-60' 

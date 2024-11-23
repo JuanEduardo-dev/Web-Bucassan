@@ -1,7 +1,7 @@
 "use client";
 
-import React, { ChangeEvent, FormEvent, useState } from 'react';
-import { Send } from 'lucide-react'
+import React, { ChangeEvent, FormEvent, useState, useEffect } from 'react';
+import { Send } from 'lucide-react';
 
 interface FormData {
   nombres: string;
@@ -20,10 +20,35 @@ const ContactForm: React.FC = () => {
     consulta: ''
   });
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const mensaje = urlParams.get('mensaje');
+    if (mensaje) {
+      setFormData((prevData) => ({
+        ...prevData,
+        consulta: mensaje
+      }));
+    }
+  }, []);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
-    // Aquí puedes manejar el envío del formulario
-    console.log('Datos del formulario:', formData);
+    try {
+      const response = await fetch('https://bucassan-xyfr.onrender.com/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      if (response.ok) {
+        console.log('Formulario enviado con éxito');
+      } else {
+        console.error('Error al enviar el formulario');
+      }
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
+    }
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
@@ -34,14 +59,14 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4">
+    <div className="w-full max-w-2xl mx-auto p-2">
       <div className="bg-transparent">
         <div className="p-2 space-y-2">
           <h2 className="text-2xl font-bold text-left text-pallette-10">
-          Reserve su cita
+            Reserve su cita
           </h2>
           <p className="text-gray-600 text-left">
-          Déjenos sus datos e indíquenos en qué horario prefiere su cita, en breve le contestaremos!
+            Déjenos sus datos e indíquenos en qué horario prefiere su cita, en breve le contestaremos!
           </p>
         </div>
         

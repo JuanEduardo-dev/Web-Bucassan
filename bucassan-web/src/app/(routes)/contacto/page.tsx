@@ -1,15 +1,19 @@
+'use client'
+
 import { ContactForm } from '@/components/ui/Contacto/ContactForm';
 import { MapPin, Clock, Phone, Mail } from 'lucide-react';
 
 export default function Contacto() {
+
   return (
     <>
       {/* Contact Section */}
-      <section className='max-w-7xl mx-auto py-2 px-2 flex justify-center items-center min-h-screen'>
+      <section className='max-w-7xl mx-auto flex justify-center items-center min-h-screen'> 
         <div className="grid grid-cols-1 lg:grid-cols-5 items-start mt-24">
-          {/* Info Section - ocupa 2 columnas */}
-          <div className="animate-fade-in-left lg:col-span-2 w-full flex flex-col p-4 space-y-4">
+          {/* Info Section - cambiamos el orden en móvil usando order-2 */}
+          <div className="animate-fade-in-left lg:col-span-2 w-full flex flex-col p-4 space-y-4 order-2 lg:order-1">
             <div className="space-y-6 w-full">
+              <hr className='opacity-0'/>
               <div className="w-full">
                 <div className="flex items-center space-x-4 mb-4">
                   <div className="p-3 bg-pallette-30/10 rounded-full">
@@ -19,7 +23,8 @@ export default function Contacto() {
                 </div>
                 <p className="text-gray-600">Av. los laureles 328, Paucarbambilla</p>
                 <p className="text-gray-600">Amarilis, Huánuco</p>
-              </div><hr />
+              </div>
+              <hr />
               <div className="w-full">
                 <div className="flex items-center space-x-4 mb-4">
                   <div className="p-3 bg-pallette-30/10 rounded-full">
@@ -29,8 +34,8 @@ export default function Contacto() {
                 </div>
                 <p className="text-gray-600">Lunes a Viernes: 8:00 AM - 8:00 PM</p>
                 <p className="text-gray-600">Sábados: 8:00 AM - 8:00 PM</p>
-              </div><hr />
-
+              </div>
+              <hr />
               <div className="w-full">
                 <div className="flex items-center space-x-4 mb-4">
                   <div className="p-3 bg-pallette-30/10 rounded-full">
@@ -39,8 +44,8 @@ export default function Contacto() {
                   <h3 className="text-xl font-semibold text-gray-800">Teléfono</h3>
                 </div>
                 <p className="text-gray-600">Llámanos: +51 974 980 380</p>
-              </div><hr />
-
+              </div>
+              <hr />
               <div className="w-full">
                 <div className="flex items-center space-x-4 mb-4">
                   <div className="p-3 bg-pallette-30/10 rounded-full">
@@ -49,11 +54,13 @@ export default function Contacto() {
                   <h3 className="text-xl font-semibold text-gray-800">Correo</h3>
                 </div>
                 <p className="text-gray-600">E-mail: buccasanclinica@gmail.com</p>
-              </div><hr />
+              </div>
+              <hr className='opacity-0'/>
             </div>
           </div>
-          {/* Formulario - ocupa 3 columnas */}
-          <div className="animate-fade-in-right lg:col-span-3 w-full">
+
+          {/* Formulario - cambiamos el orden en móvil usando order-1 */}
+          <div className="animate-fade-in-right lg:col-span-3 w-full order-1 lg:order-2">
             <ContactForm />
           </div>
         </div>

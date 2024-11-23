@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
     {/* Hero Section */}
-    <section className="relative h-[calc(100vh-250px)] md:h-[calc(100vh-150px)]">
+    <section className="relative h-[calc(100svh-250px)] md:h-[calc(100svh-150px)]">
       {/* Background */}
       <div className="absolute h-full w-full z-[-2] bg-pallette-30/90">
         <div className="w-full h-full flex justify-center items-center xl:block p-8">

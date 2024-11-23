@@ -4,6 +4,16 @@ import Image from 'next/image';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { DentalFeatures } from '@/components/ui/Nosotros/DentalFeatures';
 
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+
+
 export default function Nosotros() {
   useScrollAnimation();
 
@@ -22,19 +32,18 @@ export default function Nosotros() {
           </div>
         </div>
       </section>*/}
-    
       {/* Hero Section */}
       <section className="relative h-36 mt-24">
         {/* Background */}
         <div className="absolute h-full w-full z-[-2] bg-gradient-to-r from-pallette-30/90 via-pallette-30/60 to-transparent">
           <Image
             className="absolute object-cover top-0 right-0 h-full z-[-1] bg-cover"
-            src="/images/nosotros-top.png"
+            src="/images/nosotros-top.jpg"
             alt=""
             style={{
               width: 'auto', height: '100%',
               maskImage: 'linear-gradient(to right, transparent 1%, black 100%)',
-              WebkitMaskImage: 'linear-gradient(to right, transparent 10%, black 100%)'
+              WebkitMaskImage: 'linear-gradient(to right, transparent 1%, black 100%)'
             }}
             width={0}
             height={0}
@@ -44,10 +53,21 @@ export default function Nosotros() {
         <div className="h-full w-full bg-black bg-opacity-10">
           {/* Contenido */}
           <div  className="animate-fade-in-left max-w-7xl mx-auto px-4 h-full flex flex-col justify-center text-white">
+            <Breadcrumb>
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink href="/">Inicio</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>Nosotros</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
             <h1 className="text-3xl font-bold w-fit max-w-screen-sm drop-shadow-[0_1px_1px_rgba(0,0,0,0.6)]">
               Somos Bucassan
             </h1>
-            <p className='drop-shadow-[0_1px_1px_rgba(0,0,0,0.6)]'>Tu consultorio dental de confianza</p>
+            <p className='drop-shadow-[0_1px_1px_rgba(0,0,0,0.6)]'>Tu clínica dental de confianza</p>
           </div>
         </div>
       </section>
@@ -71,7 +91,7 @@ export default function Nosotros() {
           {/* Content */}
           <div className="w-full md:w-1/2 space-y-8">
             {/* Mission Section */}
-            <div className="animate-fade-in-up">
+            <div className="animate-fade-in-left">
               <div className="mb-2">
                 <span className="text-cyan-500 text-sm font-medium block">
                   Nuestra
@@ -88,7 +108,7 @@ export default function Nosotros() {
             </div>
 
             {/* Vision Section */}
-            <div className="animate-fade-in-up">
+            <div className="animate-fade-in-right">
               <div className="mb-2">
                 <span className="text-cyan-500 text-sm font-medium block">
                   Nuestra
@@ -108,18 +128,16 @@ export default function Nosotros() {
         </div>
       </section>
 
-      <section>
-        <div className="bg-gradient-3 py-4 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
-            <h2 className='animate-fade-in-up flex justify-center m-4 font-bold text-xl text-pallette-10'>¿Qué nos distingue?</h2>
-            <div className='reveal fade-left'>
-              <DentalFeatures/>
-            </div>
+      <section className='bg-gradient-3 py-2 px-4 sm:px-6 lg:px-8'>
+        <div className="max-w-7xl mx-auto">
+          <h2 className='animate-fade-in-up flex justify-center m-4 font-bold text-xl text-pallette-10'>¿Qué nos distingue?</h2>
+          <div className='reveal fade-up'>
+            <DentalFeatures/>
           </div>
         </div>
       </section>
 
-      <section className="m-4 mb-8 mt-8">
+      <section className="m-4 mb-4 mt-4">
         <div className="max-w-6xl mx-auto flex flex-col items-center justify-center gap-4">
           <h1 className="reveal fade-up text-2xl text-pallette-10">
             ¡Sonríe y cuida de tu salud bucal con <span className="font-medium">Bucassan</span>!
@@ -137,18 +155,17 @@ export default function Nosotros() {
               allowFullScreen
             ></iframe>
           </div>
-          <p className='reveal fade-down mt-4 mb-2'>
-            Buscamos que nuestros pacientes disfruten de una experiencia cómoda, en un ambiente de atención y servicio de alta calidad.
-          </p>
-          <p className='reveal fade-down font-medium text-pallette-10'>
+          <p className='reveal fade-up font-medium text-pallette-10 mt-4'>
             Tu salud dental y la de tu familia son nuestra principal prioridad.
           </p>
           <Image
-            className=""
-            src="/images/logo-scroll.png"
+            className="reveal fade-up"
+            src="/images/nuevo_logo.png"
             alt=""
-            width={382}
-            height={136}
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: '300px', height: '100%' }}
           />
         </div>
       </section>

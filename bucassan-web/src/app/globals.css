@@ -2,13 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-  }
-}
-
 body {
-  color: var(--foreground);
   background: #f8f8f8 !important;
   font-family: 'Geomanist', sans-serif;
 }
@@ -31,19 +25,19 @@ body {
 
 /* Clases base para las animaciones */
 .fade-left {
-  transform: translateX(-10px);
+  transform: translateX(-20px);
 }
 
 .fade-right {
-  transform: translateX(10px);
+  transform: translateX(20px);
 }
 
 .fade-up {
-  transform: translateY(10px);
+  transform: translateY(20px);
 }
 
 .fade-down {
-  transform: translateY(-10px);
+  transform: translateY(-20px);
 }
 
 /* Cuando se activa la animación */
@@ -53,4 +47,9 @@ body {
 .animate.fade-down {
   transform: translateX(0) translateY(0);
   transition: all 0.4s ease-out;
+}
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
 }

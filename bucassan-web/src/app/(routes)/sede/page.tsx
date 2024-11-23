@@ -1,11 +1,34 @@
 'use client'
 
 import Image from 'next/image';
+import { useState } from "react";
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { MapPin, Phone, Clock } from 'lucide-react';
+import { Skeleton } from "@/components/ui/skeleton";
+
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
 
 export default function Sede() {
   useScrollAnimation();
+
+  const [loadedIframes, setLoadedIframes] = useState<{ [key: string]: boolean }>({
+    leftIframe: false,
+    rightIframe: false,
+  });
+
+  const handleIframeLoad = (iframeKey: string) => {
+    setLoadedIframes((prev) => ({
+      ...prev,
+      [iframeKey]: true,
+    }));
+  };
 
   return (
     <>
@@ -18,8 +41,8 @@ export default function Sede() {
             src="/images/sede-top.png"
             alt=""
             style={{
-              maskImage: 'linear-gradient(to right, transparent 1%, black 100%)',
-              WebkitMaskImage: 'linear-gradient(to right, transparent 10%, black 100%)'
+              maskImage: 'linear-gradient(to right, transparent 20%, black 100%)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent 20%, black 100%)'
             }}
             width={3216}
             height={360}
@@ -28,6 +51,17 @@ export default function Sede() {
         <div className="h-full w-full bg-black bg-opacity-10">
           {/* Contenido */}
           <div className="animate-fade-in-left max-w-7xl mx-auto px-4 h-full flex flex-col justify-center text-white">
+            <Breadcrumb>
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink href="/">Inicio</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage>Sede</BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
             <h1 className="text-3xl font-bold w-fit max-w-screen-sm drop-shadow-[0_1px_1px_rgba(0,0,0,0.6)]">
               Ubicanos en Huánuco
             </h1>
@@ -66,25 +100,53 @@ export default function Sede() {
               </div>
             </div>
 
-            {/* Street View iframe */}
+            {/* Street View iframe with Skeleton */}
             <div className="relative h-full hidden lg:block">
+              {!loadedIframes.leftIframe && (
+                <Skeleton className="absolute inset-0 w-full h-full flex flex-col items-center justify-center space-y-4">
+                  <svg className="w-16 h-16 text-gray-400" viewBox="0 0 24 24">
+                    <path
+                      fill="currentColor"
+                      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                    />
+                  </svg>
+                  <div className="animate-pulse">
+                    <div className="h-2 w-24 bg-gray-300 rounded"></div>
+                  </div>
+                </Skeleton>
+              )}
               <iframe
                 src="https://www.google.com/maps/embed?pb=!4v1731816540891!6m8!1m7!1sLl50qDVhnbbcvlPbJPi0KA!2m2!1d-9.939883282202144!2d-76.24682301093155!3f146.95901!4f0!5f0.7820865974627469"
                 className="absolute inset-0 w-full h-full"
                 allowFullScreen
                 loading="lazy"
+                onLoad={() => handleIframeLoad("leftIframe")}
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
           </div>
 
           {/* Columna derecha (mapa grande) */}
-          <div className="lg:w-[70%] h-[600px] lg:h-full">
+          <div className="lg:w-[70%] h-[600px] lg:h-full relative">
+            {!loadedIframes.rightIframe && (
+              <Skeleton className="absolute inset-0 w-full h-full flex flex-col items-center justify-center space-y-4">
+                <svg className="w-16 h-16 text-gray-400" viewBox="0 0 24 24">
+                  <path
+                    fill="currentColor"
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                  />
+                </svg>
+                <div className="animate-pulse">
+                  <div className="h-2 w-24 bg-gray-300 rounded"></div>
+                </div>
+              </Skeleton>
+            )}
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1964.9632560367825!2d-76.24773949106361!3d-9.940072598871282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91a7c2e8115ba9df%3A0x25eb7bc387f060d3!2sCL%C3%8DNICA%20ODONTOL%C3%93GICA%20BUCCASAN!5e0!3m2!1ses!2spe!4v1732249878960!5m2!1ses!2spe"
-              className="w-full h-full"
+              className="absolute inset-0 w-full h-full"
               allowFullScreen
               loading="lazy"
+              onLoad={() => handleIframeLoad("rightIframe")}
               referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
