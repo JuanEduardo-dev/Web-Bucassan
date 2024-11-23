@@ -4,6 +4,8 @@ from pydantic import BaseModel
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import uvicorn
+import os
 
 app = FastAPI()
 
@@ -57,6 +59,6 @@ async def contact(form: ContactForm):
     except Exception as e:
         return {"message": f"Error al enviar el correo: {e}"}
 
-# Ejecutamos la aplicación
-if __name__ == '__main__':
-    app.run_server(host='0.0.0.0', debug=False)
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 10000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
