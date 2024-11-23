@@ -25,9 +25,7 @@ import {
 export default function Servicios() {
   useScrollAnimation();
   
-  const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
-  )
+  const plugin = Autoplay({ delay: 3000, stopOnInteraction: true });
 
   return (
     <>
@@ -126,11 +124,9 @@ export default function Servicios() {
           <div className='mb-4 animate-fade-in-up'>
 
           <Carousel
-            plugins={[
-              Autoplay({
-                delay: 3000,
-              }),
-            ]}
+            plugins={[plugin]}
+            onMouseEnter={plugin.stop}
+            onMouseLeave={plugin.reset}
           >
             <CarouselContent className="">
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">

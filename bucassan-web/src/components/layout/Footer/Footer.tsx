@@ -1,5 +1,7 @@
+
+import Image from 'next/image';
 import Link from 'next/link';
-import { Facebook, Instagram, Youtube, MapPin, Mail, Phone } from 'lucide-react';
+import { MapPin, Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -9,11 +11,16 @@ const Footer = () => {
           {/* Logo y descripción */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center space-x-2">
-              <img
-                src="/images/logo.png"
-                alt="Bucassan Logo"
-                className="h-16"
-              />
+            <Image
+              src="/images/logo.png"
+              alt="Bucassan Logo"
+              style={{
+                width: 'auto', height: '64px',
+              }}
+              width={0}
+              height={0}
+              sizes="100vw"
+            />
             </Link>
             <p className="text-pallette-60">
               Brindando servicios odontológicos de calidad y cuidado integral para tu salud bucal.
