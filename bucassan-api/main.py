@@ -10,7 +10,8 @@ import os
 app = FastAPI()
 
 origins = [
-    "https://bucassan.onrender.com"
+    "https://bucassan.onrender.com",
+    "http://bucassan.onrender.com",
 ]
 
 app.add_middleware(
