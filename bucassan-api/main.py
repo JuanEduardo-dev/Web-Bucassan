@@ -56,3 +56,7 @@ async def contact(form: ContactForm):
         return {"message": "Correo enviado con éxito"}
     except Exception as e:
         return {"message": f"Error al enviar el correo: {e}"}
+
+# Ejecutamos la aplicación
+if __name__ == '__main__':
+    app.run_server(host='0.0.0.0', debug=False)
