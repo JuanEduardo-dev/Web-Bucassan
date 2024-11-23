@@ -11,7 +11,11 @@ interface FormData {
   consulta: string;
 }
 
-const ContactForm: React.FC = () => {
+interface ContactFormProps {
+  onSubmit: (status: 'loading' | 'success' | 'error') => void;
+}
+
+const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
   const [formData, setFormData] = useState<FormData>({
     nombres: '',
     apellidos: '',
@@ -19,6 +23,8 @@ const ContactForm: React.FC = () => {
     telefono: '',
     consulta: ''
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -31,8 +37,21 @@ const ContactForm: React.FC = () => {
     }
   }, []);
 
+  const resetForm = () => {
+    setFormData({
+      nombres: '',
+      apellidos: '',
+      email: '',
+      telefono: '',
+      consulta: ''
+    });
+  };
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
+    setIsSubmitting(true);
+    onSubmit('loading');
+    
     try {
       const response = await fetch('https://bucassan-xyfr.onrender.com/api/contact', {
         method: 'POST',
@@ -41,13 +60,17 @@ const ContactForm: React.FC = () => {
         },
         body: JSON.stringify(formData)
       });
+      
       if (response.ok) {
-        console.log('Formulario enviado con éxito');
+        onSubmit('success');
+        resetForm();
       } else {
-        console.error('Error al enviar el formulario');
+        onSubmit('error');
       }
     } catch (error) {
-      console.error('Error al enviar el formulario:', error);
+      onSubmit('error');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -169,8 +192,25 @@ const ContactForm: React.FC = () => {
               />
             </div>
 
-            <button type="submit" className="w-full bg-pallette-10 text-white py-3 px-6 rounded-lg hover:bg-pallette-10-contrast transition-colors duration-200 font-medium flex items-center justify-center" > 
-              <Send size={24} className="mr-2" /> Enviar mensaje 
+            <button 
+              type="submit" 
+              disabled={isSubmitting}
+              className={`w-full py-3 px-6 rounded-lg transition-colors duration-200 font-medium flex items-center justify-center
+                ${isSubmitting 
+                  ? 'bg-gray-400 cursor-not-allowed' 
+                  : 'bg-pallette-10 hover:bg-pallette-10-contrast'} text-white`}
+            > 
+              {isSubmitting ? (
+                <>
+                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                  Enviando...
+                </>
+              ) : (
+                <>
+                  <Send size={24} className="mr-2" /> 
+                  Enviar mensaje
+                </>
+              )}
             </button>
           </form>
         </div>
