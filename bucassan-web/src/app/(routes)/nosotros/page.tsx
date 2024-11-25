@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { ClientScrollAnimation } from "@/components/layout/ClientScrollAnimation";
+import { ClientScrollAnimation } from "@/components/layout/utils/ClientScrollAnimation";
 import { DentalFeatures } from '@/components/ui/Nosotros/DentalFeatures';
 
 import {

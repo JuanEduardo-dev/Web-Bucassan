@@ -5,7 +5,7 @@ import { CardHero } from '@/components/ui/Inicio/CardHero';
 import { InfoSection } from '@/components/ui/Inicio/InfoSection';
 import { InfoResults } from '@/components/ui/Inicio/InfoResults';
 import { InfoServices } from '@/components/ui/Inicio/InfoServices';
-import { ClientScrollAnimation } from "@/components/layout/ClientScrollAnimation";
+import { ClientScrollAnimation } from "@/components/layout/utils/ClientScrollAnimation";
 import { CarouselPacients } from '@/components/ui/Inicio/CarouselPacients';
 import { PostsFacebook } from '@/components/ui/Inicio/PostsFacebook';
 

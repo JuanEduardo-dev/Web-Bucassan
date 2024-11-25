@@ -1,7 +1,7 @@
 import * as React from "react"
 import Image from 'next/image';
 
-import { ClientScrollAnimation } from "@/components/layout/ClientScrollAnimation";
+import { ClientScrollAnimation } from "@/components/layout/utils/ClientScrollAnimation";
 
 import { ServicesSection } from "@/components/ui/Servicios/ServicesSection";
 

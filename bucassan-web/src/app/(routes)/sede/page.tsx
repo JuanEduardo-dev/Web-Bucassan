@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { ClientScrollAnimation } from "@/components/layout/ClientScrollAnimation";
+import { ClientScrollAnimation } from "@/components/layout/utils/ClientScrollAnimation";
 
 import { FrameMap } from "@/components/ui/Sede/FrameMap";
 
