@@ -13,7 +13,7 @@ const Footer = () => {
             <Link href="/" className="flex items-center space-x-2">
             <Image
               src="/images/logo.png"
-              alt="Bucassan Logo"
+              alt="Buccasan Logo"
               style={{
                 width: 'auto', height: '64px',
               }}
@@ -58,7 +58,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a 
-                href="https://www.youtube.com/@Bucassan"
+                href="https://www.youtube.com/@Buccasan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-pallette-30 p-2 rounded-full hover:bg-pallette-60 transition-colors"
@@ -142,7 +142,7 @@ const Footer = () => {
       {/* Copyright Bar */}
       <div className="bg-pallette-10-contrast bg-gradient-to-b from-black/25 to-black/25 text-pallette-60 py-4">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <p>© {new Date().getFullYear()} Bucassan. Clínica Odontológica.</p>
+          <p>© {new Date().getFullYear()} Buccasan. Clínica Odontológica.</p>
         </div>
       </div>
     </>

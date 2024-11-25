@@ -1,15 +1,19 @@
-'use client'
 
 import Image from 'next/image';
 
 import { CardHero } from '@/components/ui/Inicio/CardHero';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { InfoSection } from '@/components/ui/Inicio/InfoSection';
+import { InfoResults } from '@/components/ui/Inicio/InfoResults';
+import { InfoServices } from '@/components/ui/Inicio/InfoServices';
+import { ClientScrollAnimation } from "@/components/layout/ClientScrollAnimation";
+import { CarouselPacients } from '@/components/ui/Inicio/CarouselPacients';
+import { PostsFacebook } from '@/components/ui/Inicio/PostsFacebook';
 
 export default function Home() {
-  useScrollAnimation();
-
+  
   return (
     <>
+    <ClientScrollAnimation>
     {/* Hero Section */}
     <section className="relative h-[calc(100svh-250px)] md:h-[calc(100svh-150px)]">
       {/* Background */}
@@ -39,7 +43,7 @@ export default function Home() {
 
       <div className="h-full w-full">
         <div className="max-w-7xl mx-auto px-4 h-full flex flex-col justify-center space-y-6 text-white">
-          <h1 className="reveal fade-up text-pallette-60 text-4xl md:text-4xl font-bold w-fit max-w-screen-sm leading-tight [text-shadow:_2px_2px_0_rgb(7_89_139)]">
+          <h1 className="reveal fade-up text-pallette-60 text-4xl md:text-4xl font-semibold w-fit max-w-screen-sm leading-tight [text-shadow:_2px_2px_0_rgb(7_89_139)]">
             Detrás de una linda sonrisa, hay una boca sana
           </h1>
           <h2 className="reveal fade-up max-w-screen-sm text-lg md:text-xl font-medium drop-shadow-[0_1px_1px_rgba(0,0,0,0.6)]">
@@ -47,8 +51,8 @@ export default function Home() {
           </h2>
           <a
             target="_blank"
-            href="https://api.whatsapp.com/send?phone=51974980380&text=Hola%20Bucassan!%20Vengo%20del%20sitio%20web%20y%20deseo%20reservar%20mi%20cita."
-            className="reveal fade-down flex w-fit items-center gap-4 bg-pallette-10 rounded-full px-6 py-3 text-white hover:bg-pallette-10-contrast transition-all duration-200 shadow-lg hover:shadow-xl"
+            href="https://api.whatsapp.com/send?phone=51974980380&text=Hola%Buccasan!%20Vengo%20del%20sitio%20web%20y%20deseo%20reservar%20mi%20cita."
+            className="reveal fade-down flex w-fit items-center gap-4 bg-pallette-10 rounded-full px-6 py-3 text-white hover:bg-pallette-10-contrast transition-all duration-300 ease-in-out hover:shadow-lg"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +70,7 @@ export default function Home() {
         </div>
       </div>
     </section>
-    <section className="h-[calc(250px)] max-w-7xl mx-auto">
+    <section className="h-full md:h-[calc(106px)] max-w-7xl mx-auto ">
       <CardHero
         contents={[
           {
@@ -111,11 +115,12 @@ export default function Home() {
                 svg: (
                   <Image
                     className=""
-                    src="/icons/yape.svg"
+                    src="/icons/yape.png"
                     alt='Yape'
                     width={32}
                     height={32}
                     style={{ height: 'auto' }}
+                    unoptimized 
                   />
                 ),
                 alt: "Yape"
@@ -129,6 +134,7 @@ export default function Home() {
                     width={32}
                     height={32}
                     style={{ height: 'auto' }}
+                    unoptimized 
                   />
                 ),
                 alt: "Plin"
@@ -158,6 +164,35 @@ export default function Home() {
         ]}
       />
     </section>
+
+    <section className='max-w-7xl mx-auto'>
+      <div className="px-4 py-2">
+        <InfoSection />
+      </div>
+    </section>
+
+    <section className="w-full mt-6">
+      <CarouselPacients />
+    </section>
+
+    <div className='w-full'>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <InfoServices />
+      </div>
+    </div>
+
+    <div className="w-full bg-half-gray mt-8 ">
+      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12'>
+        <InfoResults />
+      </div>
+    </div>
+
+    <section className='pt-6 pb-6'>
+      <div className="max-w-7xl mx-auto">
+        <PostsFacebook />
+      </div>
+    </section>
+    </ClientScrollAnimation>
     </>
   );
 }

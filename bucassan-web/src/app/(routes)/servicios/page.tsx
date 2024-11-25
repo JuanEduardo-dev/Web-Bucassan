@@ -1,17 +1,9 @@
-'use client';
-
 import * as React from "react"
 import Image from 'next/image';
 
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { ClientScrollAnimation } from "@/components/layout/ClientScrollAnimation";
 
-import ServicesSection  from "@/components/ui/Servicios/ServicesSection";
-import Autoplay from "embla-carousel-autoplay"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel"
+import { ServicesSection } from "@/components/ui/Servicios/ServicesSection";
 
 import {
   Breadcrumb,
@@ -20,15 +12,15 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
+} from "@/components/ui/Shadcn/breadcrumb"
+import { ServicesCarousel } from "@/components/ui/Servicios/Carousel";
+import { CarouselPacients } from "@/components/ui/Inicio/CarouselPacients";
 
 export default function Servicios() {
-  useScrollAnimation();
-  
-  const plugin = Autoplay({ delay: 3000, stopOnInteraction: true });
 
   return (
     <>
+    <ClientScrollAnimation>
       {/*<section className="relative h-[calc(100vh-250px)] overflow-x-hidden flex items-center justify-center mt-24">
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 h-[calc(100vh-250px)] w-[190vw] sm:w-[120vw] rounded-b-[100%] bg-cover bg-center z-[-3]" style={{ backgroundImage: "url('/images/servicio-top.jpg')" }}>
           <div className="absolute inset-0 rounded-b-[100%] bg-pallette-30/70 bg-gradient-to-t from-black/5 to-black/15"></div>
@@ -70,14 +62,14 @@ export default function Servicios() {
               </BreadcrumbList>
             </Breadcrumb>
             <h1 className="text-3xl font-bold w-fit max-w-screen-sm drop-shadow-[0_1px_1px_rgba(0,0,0,0.6)]">
-              Somos Bucassan
+              Nuestros servicios
             </h1>
-            <p className='drop-shadow-[0_1px_1px_rgba(0,0,0,0.6)]'>Tu consultorio dental de confianza</p>
+            <p className='drop-shadow-[0_1px_1px_rgba(0,0,0,0.6)]'>Resolvemos tus necesidades odontológicas</p>
           </div>
         </div>
       </section>
       
-      <section className="m-4 mb-8 mt-8">
+      <section className="m-4 mb-4 mt-4">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 items-center">
           {/* Image - hidden on mobile */}
           <div className="block w-full md:w-1/2 order-2 lg:order-1">
@@ -99,7 +91,7 @@ export default function Servicios() {
             {/* Mission Section */}
             <div className="animate-fade-in-up">
               <div className="mb-2">
-                <span className="text-cyan-500 text-sm font-medium block">
+                <span className="text-cyan-500 text-sm block">
                   Tenemos
                 </span>
                 <h2 className="text-pallette-10 text-3xl font-normal">
@@ -107,128 +99,31 @@ export default function Servicios() {
                 </h2>
               </div>
               <p className="text-gray-700 leading-relaxed">
-                En Buccasan, ofrecemos <span className='text-pallette-10'>soluciones para cualquier problema de salud dental</span> que pueda afectar tus dientes o boca. Visítanos y conoce a nuestro equipo de odontólogos y dentistas especialistas, quienes están capacitados para ofrecerte el tratamiento más adecuado para tu caso.
+                En Buccasan, ofrecemos soluciones para cualquier problema de salud dental que pueda afectar tus dientes o boca.
+                Aceptamos diversas formas de pago, incluyendo <span className='text-pallette-10 font-medium'>efectivo, transferencias y tarjetas de débito o crédito</span>, para que puedas acceder a nuestros servicios sin problemas.
                 <br />
-                Aceptamos diversas formas de pago, incluyendo <span className='text-pallette-10'>efectivo, transferencias y tarjetas de débito o crédito</span>, para que puedas acceder a nuestros sin preocupaciones.
+                Visítanos y conoce a nuestro equipo de odontólogos y dentistas especialistas, quienes están capacitados para ofrecerte el tratamiento más adecuado para tu caso.
                 <br />
-                Nuestro equipo multidisciplinario de profesionales brinda una atención odontológica de alta calidad a precios accesibles. <span className='text-pallette-10'>Todas las especialidades odontológicas se realizan en nuestra clínica</span>, para tu mayor comodidad.
+                <span className='text-pallette-10 font-medium'>Todas las especialidades odontológicas se realizan en nuestra clínica</span>, para tu mayor comodidad.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className='bg-gradient-3 py-2'>
-        <div className="max-w-7xl mx-auto">
-          <h2 className='animate-fade-in-up text-center text-2xl m-4 text-pallette-10'>Los<span className="font-medium"> resultados </span>nos respaldan</h2>
-          <div className='mb-4 animate-fade-in-up'>
-
-          <Carousel
-            plugins={[plugin]}
-            onMouseEnter={plugin.stop}
-            onMouseLeave={plugin.reset}
-          >
-            <CarouselContent className="">
-              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <Image
-                  className="h-full"
-                  src="/images/casos/2.jpg"
-                  alt=""
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  style={{ width: 'auto', height: '100%' }}
-                />
-              </CarouselItem>
-              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <Image
-                  className="h-full"
-                  src="/images/casos/3.jpg"
-                  alt=""
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  style={{ width: 'auto', height: '100%' }}
-                />
-              </CarouselItem>
-              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <Image
-                  className="h-full"
-                  src="/images/casos/4.jpg"
-                  alt=""
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  style={{ width: 'auto', height: '100%' }}
-                />
-              </CarouselItem>
-              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <Image
-                  className="h-full"
-                  src="/images/casos/5.jpg"
-                  alt=""
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  style={{ width: 'auto', height: '100%' }}
-                />
-              </CarouselItem>
-            </CarouselContent>
-          </Carousel>
-
-
-          </div>
-        </div>
-      </section>
+      <ServicesCarousel />
 
       <section className=' py-4 px-4 sm:px-6 lg:px-8'>
         <div className='max-w-7xl mx-auto'>
-          <h2 className="reveal fade-up text-3xl font-bold text-center mb-2 text-pallette-10">Nuestros servicios</h2>
+          <h2 className="reveal fade-up text-3xl font-medium text-center mb-2 text-pallette-10">Nuestros servicios</h2>
           <p className="reveal fade-up text-center mb-8">
-            Todos los tratamientos que podrás encontrar en nuestra clínica Bucassan.
+            Todos los tratamientos que podrás encontrar en nuestra clínica Buccasan.
           </p>
           <ServicesSection />
         </div>
       </section>
-      
-      {/* Sede Section 
-      <section className='max-w-7xl mx-auto py-2 px-2'>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <p>a</p>
-        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FBuccasan.pe%2Fposts%2Fpfbid02VCfcnSWZU9FkQrdaGvGRgh4nXNMpk7TzaJ5sgKkNdjJdvB2EowqVz52Nwc2Fqu52l&show_text=true&width=500" width="500" height="673" scrolling="no" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-      </section>*/}
+      <CarouselPacients />
+    </ClientScrollAnimation>
     </>
   );
 }

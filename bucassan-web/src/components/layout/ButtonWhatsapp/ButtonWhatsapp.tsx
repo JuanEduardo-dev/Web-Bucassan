@@ -1,5 +1,5 @@
 const ButtonWhatsapp = () => {
-  const whatsappLink = `https://api.whatsapp.com/send?phone=51974980380&text=Hola%20Bucassan!%20Vengo%20del%20sitio%20web%20y%20deseo%20reservar%20mi%20cita.`;
+  const whatsappLink = `https://api.whatsapp.com/send?phone=51974980380&text=Hola%Buccasan!%20Vengo%20del%20sitio%20web%20y%20deseo%20reservar%20mi%20cita.`;
 
   return (
     <a

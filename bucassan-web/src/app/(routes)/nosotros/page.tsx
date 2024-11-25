@@ -1,7 +1,6 @@
-'use client'
-
 import Image from 'next/image';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+
+import { ClientScrollAnimation } from "@/components/layout/ClientScrollAnimation";
 import { DentalFeatures } from '@/components/ui/Nosotros/DentalFeatures';
 
 import {
@@ -11,27 +10,14 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
+} from "@/components/ui/Shadcn/breadcrumb"
 
 
 export default function Nosotros() {
-  useScrollAnimation();
 
   return (
     <>
-      {/* Curva hacia abajo
-      <section className="relative h-[calc(100vh-550px)] overflow-x-hidden flex items-center">
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 h-[calc(100vh-550px)] w-[220vw] sm:w-[150vw] rounded-b-[100%] bg-gradient-to-t from-pallette-30/80 via-pallette-30/90 to-pallette-30/100 z-10"></div>
-        <div className="relative z-20">
-          <div className="max-w-7xl mx-auto w-1/2  text-white">
-            <p>
-              En Buccasan, tenemos el firme compromiso de brindarte salud bucal, para que tengas una linda sonrisa 😁.
-              Para lograrlo contamos con todo un equipo profesional multidisciplinario y altamente capacitado, donde atendemos especialidades como: ortodoncia, odontopediatría, periodoncia, implantología, endodoncia, estética dental y rehabilitación oral. 
-              Sabemos la importancia de seguir capacitándonos, es por ello que contamos con la especialidad de periodoncia e implantología por la Universidad de Sao Paolo (FACOP). Todo con el fin de brindar una atención de máxima calidad, innovadora, y a la vanguardia de la tecnología.
-            </p>
-          </div>
-        </div>
-      </section>*/}
+    <ClientScrollAnimation>
       {/* Hero Section */}
       <section className="relative h-36 mt-24">
         {/* Background */}
@@ -65,7 +51,7 @@ export default function Nosotros() {
               </BreadcrumbList>
             </Breadcrumb>
             <h1 className="text-3xl font-bold w-fit max-w-screen-sm drop-shadow-[0_1px_1px_rgba(0,0,0,0.6)]">
-              Somos Bucassan
+              Somos Buccasan
             </h1>
             <p className='drop-shadow-[0_1px_1px_rgba(0,0,0,0.6)]'>Tu clínica dental de confianza</p>
           </div>
@@ -96,7 +82,7 @@ export default function Nosotros() {
                 <span className="text-cyan-500 text-sm font-medium block">
                   Nuestra
                 </span>
-                <h2 className="text-pallette-10 text-3xl font-bold">
+                <h2 className="text-pallette-10 text-3xl font-semibold">
                   Misión
                 </h2>
               </div>
@@ -113,7 +99,7 @@ export default function Nosotros() {
                 <span className="text-cyan-500 text-sm font-medium block">
                   Nuestra
                 </span>
-                <h2 className="text-pallette-10 text-3xl font-bold">
+                <h2 className="text-pallette-10 text-3xl font-semibold">
                   Visión
                 </h2>
               </div>
@@ -130,7 +116,7 @@ export default function Nosotros() {
 
       <section className='bg-gradient-3 py-2 px-4 sm:px-6 lg:px-8'>
         <div className="max-w-7xl mx-auto">
-          <h2 className='animate-fade-in-up flex justify-center m-4 font-bold text-xl text-pallette-10'>¿Qué nos distingue?</h2>
+          <h2 className='animate-fade-in-up flex justify-center m-4 font-medium text-xl text-pallette-10'>¿Qué nos distingue?</h2>
           <div className='reveal fade-up'>
             <DentalFeatures/>
           </div>
@@ -139,18 +125,20 @@ export default function Nosotros() {
 
       <section className="m-4 mb-4 mt-4">
         <div className="max-w-6xl mx-auto flex flex-col items-center justify-center gap-4">
-          <h1 className="reveal fade-up text-2xl text-pallette-10">
-            ¡Sonríe y cuida de tu salud bucal con <span className="font-medium">Bucassan</span>!
-          </h1>
-          <p className='reveal fade-up'>
-            En Buccasan brindamos un servicio de alta calidad con profesionales de amplia experiencia para que obtengas la sonrisa que siempre soñaste.
-          </p>
+          <div className='reveal fade-up'>
+            <h1 className="text-2xl text-pallette-10 text-center">
+              ¡Sonríe y cuida de tu salud bucal con <span className="font-medium">Buccasan</span>!
+            </h1>
+            <p>
+              En Buccasan brindamos un servicio de alta calidad con profesionales de amplia experiencia para que obtengas la sonrisa que siempre soñaste.
+            </p>
+          </div>
           <div className="reveal fade-up relative w-full" style={{ paddingTop: "56.25%" }}>
             <iframe
               className="absolute top-1 left-0 w-full h-full rounded-md"
               src="https://www.youtube.com/embed/DPzjolCgNfc?si=s71xA821WAiRPkup"
               title="YouTube video player"
-              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
             ></iframe>
@@ -169,6 +157,7 @@ export default function Nosotros() {
           />
         </div>
       </section>
+    </ClientScrollAnimation>
     </>
   );
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "@/components/ui/Shadcn/skeleton";
 
 // Definir interfaces específicas para Landbot
 interface LandbotConfig {

@@ -12,7 +12,7 @@ module.exports = {
   			'pallette-30': '#01D7D6',
   			'pallette-10': '#045988',
   			'pallette-10-contrast': '#1B3C59',
-  			complement: '#01D7D6',
+
   			'gradient-1': '#4f9d9c',
   			'gradient-2': '#bffcfa',
   			'gradient-3': '#e6f4f1',
@@ -102,7 +102,10 @@ module.exports = {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+			backgroundImage: {
+        'half-gray': 'linear-gradient(to bottom, #e6f4f1 50%, transparent 50%)',
+      }
   	}
   },
   plugins: [
