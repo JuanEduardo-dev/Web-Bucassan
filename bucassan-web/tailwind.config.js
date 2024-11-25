@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
   	extend: {
+			screens: {
+        'tall-max': {'raw': '(max-height: 800px)'}
+      },
   		colors: {
   			'pallette-60': '#f8f8f8',
   			'pallette-30': '#01D7D6',

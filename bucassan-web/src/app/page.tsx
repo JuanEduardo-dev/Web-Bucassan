@@ -15,7 +15,7 @@ export default function Home() {
     <>
     <ClientScrollAnimation>
     {/* Hero Section */}
-    <section className="relative h-[calc(100svh-250px)] md:h-[calc(100svh-150px)]">
+    <section className="tall-max:h-[calc(100svh)] relative h-[calc(100svh-250px)] md:h-[calc(100svh-150px)] ">
       {/* Background */}
       <div className="absolute h-full w-full z-[-2] bg-pallette-30/90">
         <div className="w-full h-full flex justify-center items-center xl:block p-8">
@@ -70,7 +70,7 @@ export default function Home() {
         </div>
       </div>
     </section>
-    <section className="h-full md:h-[calc(106px)] max-w-7xl mx-auto ">
+    <section className="h-full md:h-[calc(106px)] max-w-7xl mx-auto block tall-max:hidden">
       <CardHero
         contents={[
           {
