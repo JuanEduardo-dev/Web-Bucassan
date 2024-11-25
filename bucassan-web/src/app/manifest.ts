@@ -2,8 +2,8 @@ import { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Bucassan | Clínica Odontológica',
-    short_name: 'Bucassan',
+    name: 'Buccasan | Clínica Odontológica',
+    short_name: 'Buccasan',
     description: 'Clínica odontológica especializada en diseño de sonrisas',
     start_url: '/',
     display: 'standalone',
