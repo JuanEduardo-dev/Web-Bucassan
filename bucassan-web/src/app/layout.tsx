@@ -10,7 +10,7 @@ import './globals.css';
 import './fonts.css';
 
 export const metadata: Metadata = {
-  title: 'Bucassan | Clínica Odontológica',
+  title: 'Buccasan | Clínica Odontológica',
   description: 'Recupera la confianza en tu sonrisa. En Buccasan brindamos un servicio de alta calidad con profesionales de amplia experiencia para que obtengas la sonrisa que siempre soñaste. Nuestros tratamientos de diseño de sonrisa pueden incluir: Carillas dentales, Blanqueamiento dental, Ortodoncia y mucho más. Reserva tu cita aquí +51 974 980 380. Nos encontramos en Jr. Los Laureles # 328 Paucarbambilla - Amarilis. Detrás de una linda sonrisa, hay una boca sana.',
   keywords: 'carillas dentales, blanqueamiento dental, ortodoncia, clínica dental, Buccasan, sonrisa perfecta, salud bucal, cita dental, profesionales dentales, tratamientos dentales',
   verification: {
