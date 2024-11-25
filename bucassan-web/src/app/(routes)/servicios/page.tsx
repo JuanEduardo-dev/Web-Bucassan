@@ -115,8 +115,8 @@ export default function Servicios() {
 
       <section className=' py-4 px-4 sm:px-6 lg:px-8'>
         <div className='max-w-7xl mx-auto'>
-          <h2 className="reveal fade-up text-3xl font-medium text-center mb-2 text-pallette-10">Nuestros servicios</h2>
-          <p className="reveal fade-up text-center mb-8">
+          <h2 className="reveal fade-up text-3xl font-medium sm:text-center mb-2 text-pallette-10">Nuestros servicios</h2>
+          <p className="reveal fade-up sm:text-center mb-8">
             Todos los tratamientos que podrás encontrar en nuestra clínica Buccasan.
           </p>
           <ServicesSection />

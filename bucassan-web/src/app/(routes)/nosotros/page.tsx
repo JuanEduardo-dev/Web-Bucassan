@@ -126,10 +126,11 @@ export default function Nosotros() {
       <section className="m-4 mb-4 mt-4">
         <div className="max-w-6xl mx-auto flex flex-col items-center justify-center gap-4">
           <div className='reveal fade-up'>
-            <h1 className="text-2xl text-pallette-10 text-center">
+            <h1 className="text-2xl text-pallette-10 sm:text-center">
               ¡Sonríe y cuida de tu salud bucal con <span className="font-medium">Buccasan</span>!
             </h1>
-            <p>
+            <br />
+            <p className='sm:text-center'>
               En Buccasan brindamos un servicio de alta calidad con profesionales de amplia experiencia para que obtengas la sonrisa que siempre soñaste.
             </p>
           </div>
