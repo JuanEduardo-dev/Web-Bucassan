@@ -5,8 +5,14 @@ This project involved designing and developing a fully optimized website for **B
 ## Key features of the project:
 - **UI/UX Design:** Focused on user-friendly and responsive design to improve the overall experience for clinic visitors.
 - **Backend:** Developed using **FastAPI** for efficient API management and integration.
-- **Frontend:** Built with **Next.js** to ensure a smooth and fast user interface.
+- **Frontend:** Built with **Next.js** and **TailwindCss** to ensure a smooth and fast user interface.
 - **SEO Optimization:** Implemented best practices for SEO to boost the clinic’s visibility on search engines.
 - **CI/CD Integration:** Automated deployment process using **Render** and **GitLab CI/CD** to ensure efficient and continuous updates to the website.
 
 This project allowed me to apply my skills in web development, database management, and SEO to provide a comprehensive solution for the clinic’s digital presence.
+
+---
+
+🔗 **Website:** [Visit Buccasan Clinic Website](https://bucassan-u951.onrender.com/)
+
+⚠️ **Note:** The backend is not currently deployed for this test version of the website.
