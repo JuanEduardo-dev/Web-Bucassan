@@ -1,6 +1,6 @@
-# Buccasan Clinic Website Development
+# Bucassan Clinic Website Development
 
-This project involved designing and developing a fully optimized website for **Buccasan Clinic** in Huánuco, Peru. The objective was to enhance the clinic’s online presence and streamline its operational management.
+This project involved designing and developing a fully optimized website for **Bucassan Clinic** in Huánuco, Peru. The objective was to enhance the clinic’s online presence and streamline its operational management.
 
 ## Key features of the project:
 - **UI/UX Design:** Focused on user-friendly and responsive design to improve the overall experience for clinic visitors.
@@ -13,6 +13,6 @@ This project allowed me to apply my skills in web development, database manageme
 
 ---
 
-🔗 **Website:** [Visit Buccasan Clinic Website](https://bucassan-u951.onrender.com/)
+🔗 **Website:** [Visit Bucassan Clinic Website](https://bucassan-u951.onrender.com/)
 
 ⚠️ **Note:** The backend is not currently deployed for this test version of the website.
